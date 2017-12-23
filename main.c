@@ -12,6 +12,7 @@
 #include "util.h"
 #include "deck.h"
 #include "cardlist.h"
+#include "shuffle.h"
 
 #define BUFFER_SIZE 80
 
@@ -48,6 +49,9 @@ PLAYER* newPlayer (char *name, char *deckfile)
 	player->name = copy;
 	player->life = 2;
 	player->deck = loadDeck (deckfile);
+	printDeck(player->deck);
+	shuffle(player->deck);
+	printDeck(player->deck);
 	player->gameboard = newGameBoard();
 	return player;
 }
