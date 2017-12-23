@@ -49,7 +49,10 @@ DECK* loadDeck (char *path)
 		for (i = 0; i < deck->capacity; i++)
 		{
 			char *name = readString (file);
-			deck->cards[i] = createCard (name, readInt (file), readInt (file), readInt (file));
+                        int life = readInt(file);
+                        int cost = readInt(file);
+                        int attack = readInt(file);
+                        deck->cards[i] = createCard (name, life, cost, attack, protector);
 		}
 		
 		fclose (file);
